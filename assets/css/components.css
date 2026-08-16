@@ -101,11 +101,13 @@ section + section {
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   color: var(--color-text-inverse);
+  transition: background-color 0.2s ease;
 }
 
 .showcase-teaser:hover,
 .showcase-teaser:focus-visible {
   color: var(--color-text-inverse);
+  background-color: var(--color-border-dark);
 }
 
 .showcase-eyebrow {
@@ -127,6 +129,15 @@ section + section {
   font-family: var(--font-body);
   font-size: var(--fs-sm);
   color: var(--color-text-inverse-muted);
+}
+
+.showcase-count .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.showcase-teaser:hover .showcase-count .arrow {
+  transform: translateX(4px);
 }
 
 .showcase-stack {
