@@ -1,0 +1,170 @@
+/* ==========================================================================
+   COMPONENTS
+   Reusable UI pieces: project cards, tags, the 3D showcase teaser.
+   Depends on variables.css, base.css, layout.css loading first.
+   ========================================================================== */
+
+/* --- Section heading --- */
+.section-heading {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-3);
+}
+
+section + section {
+  margin-top: var(--space-6);
+}
+
+/* --- Project grid --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.project-card {
+  display: block;
+  background-color: var(--color-bg);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  color: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: var(--color-accent);
+  color: inherit;
+}
+
+.project-thumb {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  overflow: hidden;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-body {
+  padding: var(--space-2);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.project-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- 3D showcase teaser ---
+   Links out to a dedicated 3D mini-grid page rather than expanding
+   inline. Stacked thumbnails hint at multiple pieces without needing
+   a carousel or any JS. */
+.showcase-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-inverse);
+}
+
+.showcase-teaser:hover,
+.showcase-teaser:focus-visible {
+  color: var(--color-text-inverse);
+}
+
+.showcase-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-text-inverse-muted);
+  margin-bottom: 4px;
+}
+
+.showcase-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--color-text-inverse);
+  margin-bottom: 4px;
+}
+
+.showcase-count {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text-inverse-muted);
+}
+
+.showcase-stack {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.showcase-thumb {
+  width: 64px;
+  height: 80px;
+  background-color: var(--color-border-dark);
+  border: 1px solid #4A473F;
+  border-radius: var(--radius-sm);
+}
+
+.showcase-thumb:not(:first-child) {
+  margin-left: -20px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-teaser {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .showcase-stack {
+    align-self: flex-end;
+  }
+}
