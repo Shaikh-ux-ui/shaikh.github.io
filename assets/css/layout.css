@@ -71,7 +71,7 @@
 }
 
 .hero-inner {
-  max-width: var(--max-width);
+  max-width: var(--max-width-wide);
   margin-inline: auto;
   padding: calc(var(--space-6) + 3rem) var(--space-3) var(--space-6);
   display: flex;

@@ -58,6 +58,7 @@
   --radius-pill: 999px; /* pill-shaped buttons, avatar frames */
 
   /* --- Layout --- */
-  --max-width: 1200px;  /* main content container */
-  --max-width-text: 680px; /* readable line-length for case study prose */
+  --max-width: 1200px;      /* standard content container: nav, project grid, case studies */
+  --max-width-wide: 1360px; /* hero-scale sections only — wider stage, more visual room */
+  --max-width-text: 680px;  /* readable line-length for case study prose */
 }
