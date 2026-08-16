@@ -1,0 +1,159 @@
+/* ==========================================================================
+   LAYOUT
+   Structural styles: nav, hero, and page-level sections.
+   Depends on variables.css and base.css loading first.
+   ========================================================================== */
+
+/* --- Site nav ---
+   Fixed over the hero, transparent by default. JS (main.js) adds
+   .scrolled once the user scrolls past the hero, which flips it to a
+   solid background with a border. Color transitions on the same class. */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  color: var(--color-text-inverse);
+  transition: background-color 0.25s ease, padding 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.site-nav.scrolled {
+  background-color: var(--color-bg);
+  border-bottom-color: var(--color-border);
+  color: var(--color-text);
+  padding: var(--space-1) var(--space-3);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: inherit;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: inherit;
+}
+
+.nav-link.contact {
+  color: var(--color-accent);
+}
+
+.nav-link.contact:hover {
+  color: var(--color-accent-hover);
+}
+
+/* --- Hero ---
+   Dark inverted section. Top padding is intentionally larger than
+   --space-6 alone to clear the fixed transparent nav sitting on top. */
+.hero {
+  background-color: var(--color-bg-dark);
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: calc(var(--space-6) + 3rem) var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.hero-text {
+  flex: 1.1;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-text-inverse-muted);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.01em;
+}
+
+.hero-name {
+  font-size: var(--fs-3xl);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-2);
+}
+
+.hero-statement {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--color-text-inverse-muted);
+  line-height: var(--lh-normal);
+  max-width: 420px;
+  margin-bottom: var(--space-3);
+}
+
+.hero-cta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-cta:hover {
+  color: var(--color-accent-hover);
+}
+
+.hero-photo {
+  flex: 0.9;
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-border-dark);
+  border: 0.5px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  overflow: hidden;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: calc(var(--space-5) + 3rem);
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .nav-links {
+    gap: var(--space-2);
+  }
+}
