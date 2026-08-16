@@ -1,0 +1,63 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   Single source of truth for color, type, spacing, and radius.
+   Change a value here and it cascades across the whole site.
+   ========================================================================== */
+
+:root {
+
+  /* --- Color: surfaces --- */
+  --color-bg: #EFE9DD;          /* warm paper background, page default */
+  --color-bg-dark: #211E1A;     /* inverted sections: footer, code blocks */
+  --color-border: #DDD5C4;      /* hairline borders, dividers on light bg */
+  --color-border-dark: #3A362F; /* hairline borders on dark sections */
+
+  /* --- Color: text --- */
+  --color-text: #211E1A;         /* primary text on light bg */
+  --color-text-muted: #5C574E;   /* secondary/supporting text on light bg */
+  --color-text-inverse: #EFE9DD; /* primary text on dark bg */
+  --color-text-inverse-muted: #A8A296; /* supporting text on dark bg */
+
+  /* --- Color: accents ---
+     Rust is the ONE signature color — links, buttons, active states,
+     anything that needs to draw the eye or signal interactivity.
+     Moss is decorative ONLY — status dots, dividers, subtle borders.
+     Never put small/legible text in moss (readability + colorblind-safety). */
+  --color-accent: #B8452E;
+  --color-accent-hover: #9C3A26;   /* darker rust for :hover states */
+  --color-accent-subtle: #4A5D45;
+
+  /* --- Typography --- */
+  --font-display: 'Space Grotesk', sans-serif; /* headings only */
+  --font-body: 'Inter', sans-serif;            /* all body copy */
+  --font-mono: 'Space Mono', monospace;        /* tags, labels, metadata */
+
+  /* Type scale — used for h1–h6, body text, small print */
+  --fs-xs: 0.75rem;    /* 12px  — fine print, timestamps */
+  --fs-sm: 0.875rem;   /* 14px  — tags, captions, nav */
+  --fs-base: 1rem;     /* 16px  — body text */
+  --fs-lg: 1.25rem;    /* 20px  — subheadings, lead paragraphs */
+  --fs-xl: 1.75rem;    /* 28px  — h2 / section headings */
+  --fs-2xl: 2.5rem;    /* 40px  — h1 on standard pages */
+  --fs-3xl: 3.5rem;    /* 56px  — homepage hero */
+
+  --lh-tight: 1.2;   /* headings */
+  --lh-normal: 1.6;  /* body copy */
+
+  /* --- Spacing scale (8px base unit) --- */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 3rem;     /* 48px */
+  --space-6: 4.5rem;   /* 72px */
+
+  /* --- Radius --- */
+  --radius-sm: 4px;     /* tags, badges, small buttons */
+  --radius-md: 12px;    /* cards, project thumbnails */
+  --radius-pill: 999px; /* pill-shaped buttons, avatar frames */
+
+  /* --- Layout --- */
+  --max-width: 1200px;  /* main content container */
+  --max-width-text: 680px; /* readable line-length for case study prose */
+}

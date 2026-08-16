@@ -1,0 +1,147 @@
+/* ==========================================================================
+   BASE
+   Reset + default styling for raw HTML elements.
+   No classes here — this is what every page looks like with zero markup
+   decisions. Component-specific styles (cards, nav, buttons) live in
+   layout.css and components.css.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap');
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--fs-3xl); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+/* --- Body text --- */
+p {
+  color: var(--color-text);
+}
+
+p.muted,
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* --- Links ---
+   Rust is reserved for interactive elements — this is exactly that. */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-accent-hover);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* --- Lists --- */
+ul, ol {
+  list-style: none;
+}
+
+/* --- Forms (base reset — contact-form.js / components.css layer styling on top) --- */
+input,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* --- Monospace utility ---
+   Use for tags, timestamps, nav labels — the "developer" signature detail. */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.01em;
+}
+
+/* --- Dark section utility ---
+   Apply to footer / any inverted block (e.g. <footer class="section-dark">). */
+.section-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+
+.section-dark p,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  color: var(--color-text-inverse);
+}
+
+.section-dark .text-muted {
+  color: var(--color-text-inverse-muted);
+}
+
+/* --- Layout container ---
+   Wrap page sections in this for consistent max-width + gutters. */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+  .container { padding-inline: var(--space-2); }
+}
