@@ -160,6 +160,127 @@
   border-top: 1px solid var(--color-border);
 }
 
+/* --- Article top spacing ---
+   Project pages use a permanently-solid nav (no transparent hero
+   variant), so this only needs to clear the compact .scrolled nav
+   height, not the taller transparent-state padding. */
+.project-article {
+  padding-top: calc(var(--space-5) + 2rem);
+}
+
+/* --- Table of contents ---
+   Populated by toc.js from the case study's h2 headings. Progressive
+   enhancement across three tiers:
+     < 1024px  : hidden entirely, no room for it to live well
+     1024-1399 : compact dots, label revealed on hover/focus (touch: tap)
+     >= 1400px : full text labels, real clearance beside the 1200px
+                 container so nothing overlaps full-width images
+   Each link's hit target is padded well past its visual dot size so
+   it stays easy to hit even when the dot itself is tiny. */
+.toc {
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: var(--space-2);
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: var(--space-1);
+  z-index: 10;
+}
+
+.toc a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.toc-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-text-muted);
+  background-color: transparent;
+  transition: all 0.15s ease;
+}
+
+.toc a.active .toc-dot {
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+}
+
+.toc-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.toc a.active .toc-label {
+  color: var(--color-accent);
+}
+
+/* --- Tier 2: compact dots, 1024-1399px --- */
+@media (min-width: 1024px) {
+  .toc {
+    display: flex;
+  }
+
+  .toc-label {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+  }
+
+  .toc a.active .toc-label {
+    color: var(--color-bg); /* stays legible on the dark tooltip background even when active */
+  }
+
+  .toc a:hover .toc-label,
+  .toc a:focus-visible .toc-label {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* --- Tier 3: full labels, 1400px+ --- */
+@media (min-width: 1400px) {
+  .toc-dot {
+    display: none;
+  }
+
+  .toc-label {
+    position: static;
+    transform: none;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .toc a.active .toc-label {
+    color: var(--color-accent);
+  }
+}
+
 /* --- Responsive --- */
 @media (max-width: 640px) {
   .img-row {

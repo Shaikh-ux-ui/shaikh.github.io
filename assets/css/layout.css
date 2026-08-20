@@ -43,6 +43,10 @@
   color: inherit;
 }
 
+.nav-logo:hover {
+  color: inherit;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
