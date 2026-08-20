@@ -97,6 +97,10 @@
 .case-study-section h2 {
   font-size: var(--fs-xl);
   margin-bottom: var(--space-2);
+  /* clears the fixed nav (~40px in its solid .scrolled state) plus
+     ~24px of extra breathing room, so a heading scrolled to via the
+     TOC lands clearly below the nav rather than tucked underneath it */
+  scroll-margin-top: 4rem;
 }
 
 .case-study-section p {
@@ -181,7 +185,7 @@
   display: none;
   position: fixed;
   top: 50%;
-  right: var(--space-2);
+  right: var(--space-3);
   transform: translateY(-50%);
   flex-direction: column;
   gap: var(--space-1);
