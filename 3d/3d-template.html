@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piece Name — Abraar Shaikh</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+  <link rel="stylesheet" href="../assets/css/3d.css">
+
+  <!--
+    model-viewer: only activates if a <model-viewer> element is present
+    on the page, so it's safe to leave this included even on pieces
+    that only use a plain image. Loaded here (not site-wide) since
+    only 3D piece pages need it.
+  -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <nav class="site-nav scrolled" data-static="true">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Abraar Shaikh</a>
+      <div class="nav-links">
+        <a href="../index.html#work" class="nav-link">work</a>
+        <a href="../3d-showcase.html" class="nav-link">3d</a>
+        <a href="../index.html#about" class="nav-link">about</a>
+        <a href="../index.html#contact" class="nav-link contact">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="container project-article">
+
+    <a href="../3d-showcase.html" class="back-link">&#8592; back to 3D showcase</a>
+
+    <!--
+      EMBED — use ONE of the two options below, delete the other.
+
+      Option A: plain image
+      <div class="piece-embed">
+        <img src="../assets/images/projects/piece-01-cover.jpg" alt="Piece name">
+      </div>
+
+      Option B: interactive 3D model (requires a .glb file in assets/models/)
+      <div class="piece-embed">
+        <model-viewer
+          src="../assets/models/piece-01.glb"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1"
+          alt="Piece name">
+        </model-viewer>
+      </div>
+    -->
+    <div class="piece-embed">
+      <span>embed — image or model-viewer</span>
+    </div>
+
+    <h1 class="piece-title">Piece name</h1>
+    <p class="piece-caption">One short caption — what it is, the material or tool used, nothing longer than a couple of lines.</p>
+
+    <div class="piece-meta">
+      <div class="meta-item">
+        <p class="meta-label">material</p>
+        <p class="meta-value">PLA</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">print time</p>
+        <p class="meta-value">14 hrs</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">tags</p>
+        <div class="project-tags">
+          <span class="tag">3D PRINT</span>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@
   /* --- Color: surfaces --- */
   --color-bg: #EFE9DD;          /* warm paper background, page default */
   --color-bg-dark: #211E1A;     /* inverted sections: footer, code blocks */
+  --color-surface-dark: #2A2722; /* elevated card surfaces sitting on --color-bg-dark */
   --color-border: #DDD5C4;      /* hairline borders, dividers on light bg */
   --color-border-dark: #3A362F; /* hairline borders on dark sections */
 
